@@ -1,5 +1,6 @@
 import os
 import plotly.express as px
+import plotly.figure_factory as ff
 import dash
 import dash_core_components as dcc
 import dash_html_components as html
@@ -11,10 +12,8 @@ external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
 app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
 #pressure_data = np.random.randint(1000, size=(10, 10))
 
-a = [[1, 2, 3, 4, 5], [6, 7, 8, 9, 0], [
-    2, 3, 1, 4, 8], [4, 7, 9, 3, 2], [5, 7, 2, 9, 1]]
-b = [[1, 2, 3, 4, 5], [4, 3, 2, 1, 0], [
-    2, 3, 1, 4, 3], [4, 3, 9, 3, 2], [5, 6, 2, 2, 1]]
+#a = np.random.randint(1000, size=(5, 5))
+
 t = np.zeros((5, 5))
 
 server = app.server
@@ -36,10 +35,15 @@ def update_graph(n):
     #pressure_data = np.random.randint(1000, size=(15, 30))
     a = np.random.randint(1000, size=(5, 5))
     alert_msg = detect(a,t)
+    print(a,alert_msg)
 
     sens = html.Ul([html.Li(x) for x in alert_msg ])
-    fig = px.imshow(a,color_continuous_scale='Hot_r')
-    fig.update_layout(width=int(1000))
+    #fig = px.imshow(a,color_continuous_scale='Hot_r')
+    #colorscale = [[0, 'white'],[400,'red'] [1000, 'black']]
+    font_colors = ['black','white']
+    fig = ff.create_annotated_heatmap(a, colorscale='Hot_r', font_colors=font_colors)
+    #fig = ff.create_annotated_heatmap(a,color_continuous_scale='Hot_r')
+    #fig.update_layout(width=int(1000))
 
 
     #fig = px.imshow(pressure_data)
