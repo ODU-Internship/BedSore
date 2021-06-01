@@ -4,3 +4,4 @@ plotly
 dash_core_components
 dash
 pandas
+gunicorn
