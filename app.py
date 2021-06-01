@@ -61,3 +61,7 @@ def detect(arr, t):
         elif(element <= 400):
             t[x][y] = 0.0
     return sen_list
+
+
+if __name__ == '__main__':
+    app.run(debug=True)
