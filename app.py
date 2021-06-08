@@ -41,7 +41,7 @@ def update_graph(n):
     #colorscale = [[0, 'white'],[400,'red'] [1000, 'black']]
     font_colors = ['black', 'white']
     fig = ff.create_annotated_heatmap(
-        a, colorscale='Hot_r', font_colors=font_colors, showscale=True)
+        a, colorscale='Hot_r', font_colors=font_colors, showscale=True, reversescale=True)
     #fig = ff.create_annotated_heatmap(a,color_continuous_scale='Hot_r')
     # fig.update_layout(width=int(1000))
 
